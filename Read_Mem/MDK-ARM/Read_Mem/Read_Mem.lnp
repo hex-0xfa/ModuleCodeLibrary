@@ -1,0 +1,24 @@
+--cpu Cortex-M3
+"read_mem\startup_stm32f103xe.o"
+"read_mem\stm32f1xx_hal_i2c.o"
+"read_mem\stm32f1xx_hal_gpio_ex.o"
+"read_mem\stm32f1xx_hal_cortex.o"
+"read_mem\stm32f1xx_hal_pwr.o"
+"read_mem\stm32f1xx_hal.o"
+"read_mem\stm32f1xx_hal_dma.o"
+"read_mem\stm32f1xx_hal_flash_ex.o"
+"read_mem\stm32f1xx_hal_gpio.o"
+"read_mem\stm32f1xx_hal_rcc.o"
+"read_mem\stm32f1xx_hal_flash.o"
+"read_mem\stm32f1xx_hal_rcc_ex.o"
+"read_mem\stm32f1xx_hal_tim.o"
+"read_mem\stm32f1xx_hal_tim_ex.o"
+"read_mem\system_stm32f1xx.o"
+"read_mem\stm32f1xx_it.o"
+"read_mem\stm32f1xx_hal_msp.o"
+"read_mem\main.o"
+"read_mem\user_i2c.o"
+--library_type=microlib --strict --scatter "Read_Mem\Read_Mem.sct"
+--diag_suppress=L6329 --summary_stderr --info summarysizes --map --xref --callgraph --symbols
+--info sizes --info totals --info unused --info veneers
+--list "Read_Mem.map" -o Read_Mem\Read_Mem.axf
