@@ -43,6 +43,7 @@
 #include "constant.h"
 #include "Module_Slave_I2C.h"
 #include "Module_MemMap.h"
+#include "Module_Initialization.h"
 /* USER CODE END Includes */
 
 /* Private variables ---------------------------------------------------------*/
@@ -110,7 +111,7 @@ int main(void)
 	//FREE_SIDE_MONITORS             使用DMA与I2C进行循环更新
 	//CHANNEL_MONITORS               使用DMA与I2C进行循环更新
 	
-	
+	 Module_Init();
 	//初始化参数，使用i2c,dma实时更新寄存器，有大约200个寄存器地址需随时更新，使用DMA进行循环更新
 	//放在参数初始化以后
 /*  emptyBuffer(TxRxBuffer);

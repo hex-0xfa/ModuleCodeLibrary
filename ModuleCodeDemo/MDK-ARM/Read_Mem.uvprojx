@@ -499,6 +499,11 @@
               <FileType>1</FileType>
               <FilePath>..\Src\utilities.c</FilePath>
             </File>
+            <File>
+              <FileName>Module_Initialization.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\Src\Module_Initialization.c</FilePath>
+            </File>
           </Files>
         </Group>
         <Group>

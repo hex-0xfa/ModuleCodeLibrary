@@ -29,3 +29,4 @@ read_mem\main.o: ../Inc/constant.h
 read_mem\main.o: ../Inc/Module_Slave_I2C.h
 read_mem\main.o: ../Inc/Module_MemMap.h
 read_mem\main.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stdlib.h
+read_mem\main.o: ../Inc/Module_Initialization.h
