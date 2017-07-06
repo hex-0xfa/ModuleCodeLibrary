@@ -27,3 +27,6 @@ read_mem\module_slave_i2c.o: ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_f
 read_mem\module_slave_i2c.o: ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_i2c.h
 read_mem\module_slave_i2c.o: ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_pwr.h
 read_mem\module_slave_i2c.o: ../Inc/constant.h
+read_mem\module_slave_i2c.o: ../Inc/Module_MemMap.h
+read_mem\module_slave_i2c.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stdlib.h
+read_mem\module_slave_i2c.o: ../Inc/utilities.h

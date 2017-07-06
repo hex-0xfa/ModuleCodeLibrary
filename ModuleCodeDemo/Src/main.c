@@ -42,6 +42,7 @@
 /* USER CODE BEGIN Includes */
 #include "constant.h"
 #include "Module_Slave_I2C.h"
+#include "Module_MemMap.h"
 /* USER CODE END Includes */
 
 /* Private variables ---------------------------------------------------------*/
@@ -49,12 +50,13 @@ I2C_HandleTypeDef hi2c1;
 
 /* USER CODE BEGIN PV */
 /* Private variables ---------------------------------------------------------*/
-uint8_t QSFP28_MEMORY_MAP[MEMORY_MAP_SIZE] = {0};
+//int a = MEMORY_MAP_SIZE;
+//uint8_t* QSFP28_MEMORY_MAP;
 //volatile uint8_t Data_Not_Ready    = 0x01;
 //volatile uint8_t IntL_State        = 0x00; //倒数第二位
-uint8_t Internal_Address  = 0x00;
+//uint8_t Internal_Address  = 0x00;
 //int s = 0;
-uint8_t TxRxBuffer[PAGE_SIZE+1];
+//uint8_t TxRxBuffer[PAGE_SIZE+1];
 /* USER CODE END PV */
 
 /* Private function prototypes -----------------------------------------------*/
@@ -99,6 +101,7 @@ int main(void)
   MX_I2C1_Init();
 
   /* USER CODE BEGIN 2 */
+//	QSFP28_MEMORY_MAP = initiate_Memmap(MEMORY_MAP_SIZE);
 	//初始化寄存器地址
 	//QSFP28_MEMORY_MAP[IDENTIFIER_ADDRESS] = QSFP28_IDENTIFIER;
 	//QSFP28_MEMORY_MAP[STATUS] = IS_PAGED | Data_Not_Ready | IntL_State;       //DML 循环更新
@@ -110,10 +113,14 @@ int main(void)
 	
 	//初始化参数，使用i2c,dma实时更新寄存器，有大约200个寄存器地址需随时更新，使用DMA进行循环更新
 	//放在参数初始化以后
-  emptyBuffer(TxRxBuffer);
+/*  emptyBuffer(TxRxBuffer);
 	 if(hi2c1.State == HAL_I2C_STATE_READY)
 	{
 		HAL_I2C_Slave_Bimode_IT(&hi2c1,TxRxBuffer,PAGE_SIZE+1);
+	}*/
+	if(hi2c1.State == HAL_I2C_STATE_READY)
+	{
+		I2C_Slave_Transreceiver_IT_Iniitialize(&hi2c1);
 	}
   /* USER CODE END 2 */
 
@@ -280,7 +287,8 @@ void assert_failed(uint8_t* file, uint32_t line)
 
 /**
   * @}
-  */ 
+  */
+/*
 void HAL_I2C_SlaveRxCpltCallback(I2C_HandleTypeDef *hi2c)
 {
 	 int i = 0;
@@ -297,31 +305,21 @@ void HAL_I2C_SlaveRxCpltCallback(I2C_HandleTypeDef *hi2c)
 	 //emptyBuffer(TxRxBuffer);
 	 hi2c->pBuffPtr = TxRxBuffer;
    hi2c->XferCount = PAGE_SIZE+1;
-	 /*for(i = 0; i <= PAGE_SIZE; i++)
+	 for(i = 0; i <= PAGE_SIZE; i++)
 	 {
 		  TxRxBuffer[i] = QSFP28_MEMORY_MAP[Internal_Address+i];
-	 }*/
+	 }
 //TxRxBuffer[2] = 0x33;
 }
+*/
+/*
 void HAL_I2C_SlaveTxCpltCallback(I2C_HandleTypeDef *hi2c)
 {
 	//emptyBuffer(TxRxBuffer);
 	 hi2c->pBuffPtr = TxRxBuffer;
    hi2c->XferCount = PAGE_SIZE+1;
 }
-uint8_t* GetQSFPMemoryAddress(void)
-{
-	return QSFP28_MEMORY_MAP;
-}
-
-void emptyBuffer(uint8_t* a)
-{
-	int i = 0;
-	for(i =0; i<= PAGE_SIZE+1;i++)
-	{
-		a[i] = 0;
-  }
-}
+*/
 
 /**
   * @}

@@ -1,6 +1,10 @@
+#ifndef CONSTANT
+#define CONSTANT
+
 #define PAGE_SIZE                             128
 #define PAGE_NUMBER                           5
-#define MEMORY_MAP_SIZE                       PAGE_SIZE*5
+#define MEMORY_MAP_SIZE                       PAGE_SIZE*2
+#define RW_CHUNK_SIZE                         PAGE_SIZE
 
 #define QSFP28_IDENTIFIER                     0X11
 #define IS_PAGED                              0x00<<2U
@@ -20,3 +24,5 @@
 #define PASSWORD_CHANGE_ENTRY_AREA            119
 #define PASSWORD_ENTRY_AREA                   123
 #define PAGE_SELECT_BYTE                      127
+
+#endif

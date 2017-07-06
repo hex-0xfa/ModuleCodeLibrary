@@ -494,6 +494,11 @@
               <FileType>1</FileType>
               <FilePath>..\Src\Module_Slave_I2C.c</FilePath>
             </File>
+            <File>
+              <FileName>utilities.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\Src\utilities.c</FilePath>
+            </File>
           </Files>
         </Group>
         <Group>
