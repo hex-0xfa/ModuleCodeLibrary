@@ -27,6 +27,7 @@ uint8_t Read_MemMap(int Memory_Address)                            //读MemMap
 	{
 		return READ_ERR;
 	}
+	//*(MemMap_Array + Memory_Address) = MASTERI2C->GetFromChip(Memory_Address)
   return *(MemMap_Array + Memory_Address);
 }
 
@@ -43,6 +44,7 @@ uint8_t Write_MemMap(int Memory_Address, uint8_t value)             //写MemMap
 	else
 	{
     *(MemMap_Array + Memory_Address) = value;
+		//MASTERI2C->PushToChip(Memory_Address,value)
 	}
 	return WRITE_NORMAL;
 }
@@ -56,3 +58,7 @@ uint8_t Internal_Write_MemMap(int Memory_Address, uint8_t value)     //内部写Mem
   *(MemMap_Array + Memory_Address) = value;
 	return WRITE_NORMAL;
 }
+//86 Tx 失能
+//87 选择 Rx 的速率 （可选）
+//88 选择 Tx 的速率 （可选）
+//89 - 92 Software Application 选择 （可选）
